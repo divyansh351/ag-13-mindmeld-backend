@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const userRoutes = require('./routes/user');
-const testRoutes = require('./routes/test');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/mindmeld';
 const port = process.env.PORT || 3000;
@@ -24,7 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/users', userRoutes);
-app.use('/api/tests', testRoutes);
 
 app.get("/", (req, res) => {
     res.status(200).json({ message: "MindMeld API is running" });
